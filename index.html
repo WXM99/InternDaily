@@ -1,0 +1,720 @@
+<!doctype html>
+<html style='font-size:16px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>EquityMarkets</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); background-position: initial initial; background-repeat: initial initial; }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+/* --------- */
+/* Variables */
+/* --------- */
+
+:root {
+
+/* Fonts */
+  --ff-sans: -apple-system, BlinkMacSystemFont, "SF Pro", "SF Pro Text", "Helvetica Neue", "Helvetica", "Arial", 
+    "Roboto", "Ubuntu", "Segoe UI", "Fira Sans", "Droid Sans", sans-serif;
+  --ff-serif: "Ivy Journal", "Adobe Caslon Pro", 
+    "Goudy Old Style", "Athelas", "Californian FB", "Georgia Pro", Georgia, serif;
+  --ff-disp: "SangBleu Empire", "F37 Bella", "acta-display", 
+    "Questa Grande", "QuestaGrande", "Didot", "Didonesque", 
+    "Georgia Pro", Georgia, serif;
+  --ff-disp-sm: "SangBleu Kingdom", "Questa", "Georgia Pro", Georgia, serif;
+
+  --f-sml:  0.875rem;
+  --f-med:  1rem;    
+  --f-semi: 1.25rem; 
+  --f-lrg:  1.5rem;  
+  --f-xlg:  2rem;    
+  --f-2xl:  3rem;    
+  --f-hero: 3.75rem; 
+  --f-xhr:  4.5rem;  
+  --f-2xh:  6rem;    
+
+  --f-weight: 400;
+  --f-line-height: 1.5;
+
+/* Lengths */
+
+  --unit: 0.625rem;
+  --u2: calc(2 * var(--unit) );
+  --u3: calc(3 * var(--unit) );
+  --u4: calc(4 * var(--unit) );
+  --u6: calc(6 * var(--unit) );
+  --u8: calc(8 * var(--unit) );
+
+  --content: 70rem;
+  --measure: 33em;
+
+/* Colours */
+
+  --grey1: #333;
+  --grey2: #5a5a5a;
+  --grey3: #b2b2b2;
+  --grey4: #d0d0d0;
+  --grey5: #f6f6f6;
+
+  --gold-dark: #a58e19;
+  --gold-bright: #FFD81E;
+  --gold-light: #E5CF67;
+
+}
+
+/* ---- */
+/* Base */
+/* ---- */
+
+* {
+  box-sizing: border-box
+}
+
+*:focus {
+  background-color: var(--gold-bright);
+  box-shadow: 0 0 0 var(--unit) var(--gold-bright);
+  outline: none
+}
+
+body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,hr,dl,dd,ol,ul,figure {
+  margin: 0;
+  padding: 0
+}
+
+html,body {
+  height: 100%
+}
+
+html {
+  font-size: 14px
+}
+
+@media screen and (orientation: portrait) and (min-width: 1024px) {
+  html {
+    font-size:16px
+  }
+}
+@media screen and (orientation: landscape) and (min-width: 1440px) {
+  html {
+    font-size:16px
+  }
+}
+@media screen and (min-width: 2000px) {
+  html {
+    font-size:20px
+  }
+}
+@media screen and (min-width: 2800px) {
+  html {
+    font-size:24px
+  }
+}
+
+body {
+  font-family: var(--ff-sans);
+  line-height: 1.5;
+  color: var(--grey1);
+  background-color: white;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: "kern" 1,"liga" 1,"calt" 1,"pnum" 1,"tnum" 0,"onum" 1,"lnum" 0,"dlig" 0;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle
+}
+
+figure>img {
+  display: block;
+  margin: 0 auto
+}
+
+figcaption {
+  font-size: var(--f-sml);
+  text-align: center
+}
+
+h1,h2,h3,h4,blockquote {
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale
+}
+
+a {
+  color: var(--grey2);
+  text-decoration: none;
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(transparent -300%, currentColor 600%);
+  background-image: linear-gradient(transparent -300%, currentColor 600%);
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  transition: all 0.2s ease-in-out
+}
+
+a:hover {
+  color: black
+}
+
+/* ---------- */
+/* Typography */
+/* ---------- */
+
+i, em {
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: 600;
+}
+
+small {
+  font-size: var(--f-sml);
+}
+
+big {
+  font-size: var(--f-semi)
+}
+
+p {
+  font-family: var(--ff-serif);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin: 1.25em 0;
+}
+
+h6, thead {
+  font-size: var(--f-sml);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin: 1.5em 0 1em;
+}
+
+h5 {
+  font-family: var(--ff-serif);
+  font-size: var(--f-semi);
+  margin: 1.5em 0 1em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+h5::after {
+  content: '—'
+}
+
+@media screen and (min-width: 480px) {
+  h5 {
+    font-size:var(--f-lrg)
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  h4 {
+    font-size:var(--f-xlg)
+  }
+}
+
+h4 {
+  font-size: var(--f-lrg);
+  line-height: 1.25;
+  margin: 1em 0 0.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+}
+
+@media screen and (min-width: 1440px) {
+  h4 {
+    font-size:var(--f-xlg)
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h3 {
+    font-size:var(--f-xlg)
+  }
+}
+
+h3 {
+  font-family: var(--ff-serif);
+  font-size: var(--f-lrg);
+  line-height: 1.25;
+  margin: 1em 0 0.5em;
+  font-weight: 200;
+}
+
+@media screen and (min-width: 480px) {
+  h3 {
+    font-size:var(--f-xlg);
+    line-height: 1
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h3 {
+    font-size:var(--f-2xl)
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  h3 {
+    font-size:var(--f-hero)
+  }
+}
+
+h2 {
+  font-size: var(--f-xlg);
+  line-height: 1.25;
+  margin: 1em 0 0.5em;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+}
+
+@media screen and (min-width: 480px) {
+  h2 {
+    font-size:var(--f-2xl);
+    line-height: 1
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size:var(--f-hero);
+    font-weight: 100;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  h2 {
+    font-size:var(--f-xhr);
+  }
+}
+
+h1 {
+  font-family: var(--ff-disp-sm);
+  font-size: var(--f-xlg);
+  line-height: 1.25;
+  margin: 1em 0 0.5em;
+}
+
+@media screen and (min-width: 480px) {
+  h1 {
+    font-family: var(--ff-disp);
+    font-size:var(--f-hero);
+    line-height: 1
+    font-weight: 400;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size:var(--f-xhr);
+    letter-spacing: -0.01em;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  h1 {
+    font-size:var(--f-2xh);
+    font-weight: 200;
+  }
+}
+
+/* ------ */
+/* Layout */
+/* ------ */
+
+#write {
+  max-width: var(--content);
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--u2);
+  padding-right: var(--u2);
+}
+
+@media screen and (min-width: 768px) {
+  #write {
+    padding-left: var(--u4);
+    padding-right: var(--u4)
+  }
+}
+
+p {
+  max-width: var(--measure);
+}
+
+blockquote {
+  font-family: var(--ff-serif);
+  font-style: italic;
+}
+
+blockquote p {
+  font-size: 1.5em;
+}
+
+/* Peekout / peekin */
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0
+}
+
+@media screen and (min-width: 1440px) {
+  blockquote {
+    margin-left: var(--u4);
+    margin-right: var(--u4)
+  }
+}
+
+h5 {
+  margin-left: 0;
+  margin-right: 0
+}
+
+@media screen and (min-width: 1440px) {
+  h5 {
+    margin-left: calc(-1 * var(--u4));
+    margin-right: calc(-1 * var(--u4))
+  }
+}
+
+ul, ol {
+  max-width: var(--measure);
+  margin-left: var(--u4);
+}
+
+hr {
+  margin: var(--u8) 0;
+}
+
+table {
+  margin: var(--u4) 0;
+}
+
+pre, .CodeMirror {
+  background-color: var(--grey5);
+  padding: var(--unit);
+}
+
+#write input[type="checkbox"] {
+  margin: 0.75rem -1.5rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a.md-toc-inner {
+  line-height: 1em;
+  margin: 0.5em 0;
+}
+
+.footnotes {
+  font-size: var(--f-sml);
+  padding: var(--u4) 0 1em;
+  border-top: 1px solid var(--grey4);
+  margin-top: var(--u4);
+}
+
+/*Outlines*/
+
+.outline-content {
+  padding: 0.5em var(--u2);
+}
+
+.outline-h2 > .outline-item {
+  padding-left: var(--unit);
+}
+.outline-h3 > .outline-item {
+  padding-left: var(--u2);
+}
+.outline-h4 > .outline-item {
+  padding-left: var(--u3);
+}
+
+.outline-item {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+/*Sidebar*/
+
+.info-panel-tab-wrapper {
+  font-family: var(--ff-sans);
+}
+
+.active-tab-files #info-panel-tab-file .info-panel-tab-border,
+.active-tab-outline #info-panel-tab-outline .info-panel-tab-border {
+  height: 1px;
+}
+
+/*Megamenu*/
+
+.megamenu-menu a,
+.dropdown a {
+  background-image: none;
+}
+
+.megamenu-menu ul, .megamenu-menu ol,
+.dropdown ul, .dropdownol {
+  list-style: none;
+  margin-left: 0;
+}
+
+.megamenu-menu-list li a {
+  display: inline-block;
+  width: 100%;
+  padding-top: var(--u2);
+  padding-bottom: var(--u2);
+  position: relative;
+  font-size: var(--f-med);
+}
+
+.megamenu-menu-list li a span {
+  position: absolute;
+  top: 0;
+}
+
+.megamenu-menu-panel h1 {
+  font-family: var(--ff-sans);
+  font-size: var(--f-2xl);
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 0.05em;
+}
+
+@media screen and (min-width: 768px) {
+  .megamenu-menu-panel h1 {
+    font-family: var(--ff-sans);
+    font-size: var(--f-hero);
+    font-weight: 200;
+    line-height: 1em;
+    letter-spacing: 0.1em;
+  }
+}
+
+.megamenu-menu-panel {
+  max-width: var(--content);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--u4);
+}
+
+/*Form elements*/
+
+input:focus, button:focus, select:focus, textarea:focus {
+  background-color: white;
+  outline: var(--unit) var(--gold-bright);
+}
+
+/*Notifications*/
+
+#md-notification {
+  border: none;
+  max-width: var(--measure);
+  color: black;
+  box-shadow: 0 0 0 1px;
+  padding: var(--u2) 0;
+  left: auto;
+  right: var(--u2);
+}
+
+.typora-node.pin-outline #md-searchpanel,
+.typora-node.pin-outline #md-notification {
+  left: auto;
+}
+
+#md-notification p {
+  font-family: var(--ff-sans);
+  text-align: left;
+}
+
+/*Source*/
+
+#typora-source *:focus {
+  background-color: white;
+}
+
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-mac'><h1><a name="equity-markets" class="md-header-anchor"></a><span>Equity Markets</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n984"><a class="md-toc-inner" href="#equity-markets">Equity Markets</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n987"><a class="md-toc-inner" href="#0-introduction">0. Introduction</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n989"><a class="md-toc-inner" href="#1-overview-of-equity">1. Overview of Equity</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n990"><a class="md-toc-inner" href="#11-what-is-equity">1.1 What is Equity?</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1001"><a class="md-toc-inner" href="#111-equity--capital-structure">1.11 Equity &amp; Capital Structure</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1012"><a class="md-toc-inner" href="#1111-common-stock-vs-preferred-stock">1.111 Common Stock vs. Preferred Stock</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1014"><a class="md-toc-inner" href="#common-stock"><strong>Common Stock</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1016"><a class="md-toc-inner" href="#preferred-stock"><strong>Preferred Stock</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1018"><a class="md-toc-inner" href="#11v-common-stock-voting-rights">1.1v Common Stock: Voting Rights</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1022"><a class="md-toc-inner" href="#1v-common-stock-dividends">1.v Common Stock: Dividends</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1026"><a class="md-toc-inner" href="#passing-the-dividend"><strong>Passing the Dividend</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1034"><a class="md-toc-inner" href="#1v1-types-of-dividend">1.v1 Types of Dividend</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1036"><a class="md-toc-inner" href="#cash-dividend"><strong>Cash Dividend</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1038"><a class="md-toc-inner" href="#stockscrip-dividend"><strong>Stock/Scrip Dividend</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1040"><a class="md-toc-inner" href="#property-dividend"><strong>Property Dividend</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1042"><a class="md-toc-inner" href="#special-dividend"><strong>Special Dividend</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1044"><a class="md-toc-inner" href="#1-v1-dividend-announcements--key-dates">1. v1 Dividend Announcements &amp; Key Dates</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1053"><a class="md-toc-inner" href="#declaration-date"><strong>Declaration Date</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1056"><a class="md-toc-inner" href="#record-date"><strong>Record Date</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1058"><a class="md-toc-inner" href="#ex-dividend-date"><strong>Ex-Dividend Date</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1061"><a class="md-toc-inner" href="#payment-date"><strong>Payment Date</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1063"><a class="md-toc-inner" href="#1v11-common-stock">1.v11 Common Stock</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1064"><a class="md-toc-inner" href="#dualmultiple-classes"><strong>Dual/Multiple Classes</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1069"><a class="md-toc-inner" href="#limited-liability"><strong>Limited Liability</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1077"><a class="md-toc-inner" href="#1v111-preferred-stock">1.v111 Preferred Stock</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1079"><a class="md-toc-inner" href="#dividends"><strong>Dividends</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1081"><a class="md-toc-inner" href="#voting-rights"><strong>Voting Rights</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1083"><a class="md-toc-inner" href="#riskrank"><strong>Risk/Rank</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1085"><a class="md-toc-inner" href="#types-of-preferred-stock"><strong>Types of Preferred Stock</strong></a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1087"><a class="md-toc-inner" href="#cumulative"><strong>Cumulative</strong></a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1089"><a class="md-toc-inner" href="#redeemable"><strong>Redeemable</strong></a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1091"><a class="md-toc-inner" href="#convertible"><strong>Convertible</strong></a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1094"><a class="md-toc-inner" href="#participating"><strong>Participating</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1096"><a class="md-toc-inner" href="#11v-other-types-of-equity-security">1.1v Other Types of Equity Security</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1097"><a class="md-toc-inner" href="#warrants"><strong>Warrants</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1106"><a class="md-toc-inner" href="#depositary-receipts"><strong>Depositary Receipts</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1111"><a class="md-toc-inner" href="#exchange-traded-funds"><strong>Exchange-Traded Funds</strong></a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1115"><a class="md-toc-inner" href="#2-valuing-equity">2. Valuing Equity</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1116"><a class="md-toc-inner" href="#111-how-are-stocks-valued">11.1 How are Stocks Valued?</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1121"><a class="md-toc-inner" href="#1111-technical-vs-fundamental-analysis">11.11 Technical vs. Fundamental Analysis</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1122"><a class="md-toc-inner" href="#technical-analysis"><strong>Technical Analysis</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1125"><a class="md-toc-inner" href="#fundamental-analysis"><strong>Fundamental Analysis</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1128"><a class="md-toc-inner" href="#11111-dividend-yield">11.111 Dividend Yield</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1140"><a class="md-toc-inner" href="#111v-earnings-per-share-eps">11.1v Earnings Per Share (EPS)</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1147"><a class="md-toc-inner" href="#11v-priceearnings-pe-ratio">11.v Price/Earnings (P/E) Ratio</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1185"><a class="md-toc-inner" href="#cyclically-adjusted-price-earnings-cape"><strong>Cyclically Adjusted Price-Earnings (CAPE)</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1188"><a class="md-toc-inner" href="#11v1-priceearnings-to-growth-peg-ratio">11.v1 Price/Earnings to Growth (PEG) Ratio</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1214"><a class="md-toc-inner" href="#11v11-stock-classification">11.v11 Stock Classification</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1225"><a class="md-toc-inner" href="#industrysector"><strong>Industry/Sector</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1247"><a class="md-toc-inner" href="#geography"><strong>Geography</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1256"><a class="md-toc-inner" href="#financial-characteristicsinvestment-objectives"><strong>Financial Characteristics/Investment Objectives</strong></a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1258"><a class="md-toc-inner" href="#growth-stocks"><strong>Growth Stocks</strong></a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1260"><a class="md-toc-inner" href="#value-stocks"><strong>Value Stocks</strong></a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1264"><a class="md-toc-inner" href="#income-stocks"><strong>Income Stocks</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1270"><a class="md-toc-inner" href="#11v111-market-indices">11.v111 Market Indices</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1275"><a class="md-toc-inner" href="#3-trading-equity">3. Trading Equity</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1276"><a class="md-toc-inner" href="#1111-a-perspective-on-equity-trading">111.1 A Perspective on Equity Trading</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1280"><a class="md-toc-inner" href="#11111-the-changing-nature-of-stock-markets">111.11 The Changing Nature of Stock Markets</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1285"><a class="md-toc-inner" href="#111111-stock-exchanges">111.111 Stock Exchanges</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1350"><a class="md-toc-inner" href="#1111v-dark-pools--other-off-exchange-trading-venues">111.1v Dark Pools &amp; Other Off-Exchange Trading Venues</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1354"><a class="md-toc-inner" href="#111v-algorithmic-trading">111.v Algorithmic Trading</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1362"><a class="md-toc-inner" href="#111v1-high-frequency-trading-hft">111.v1 High Frequency Trading (HFT)</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1372"><a class="md-toc-inner" href="#111v11-orders">111.v11 Orders</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1374"><a class="md-toc-inner" href="#market-orders"><strong>Market Orders</strong> </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1377"><a class="md-toc-inner" href="#limit-orders"><strong>Limit Orders</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1379"><a class="md-toc-inner" href="#stop-orders"><strong>Stop Orders</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1382"><a class="md-toc-inner" href="#stop-limt-orders"><strong>Stop-limt Orders</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1386"><a class="md-toc-inner" href="#other-orders"><strong>Other Orders</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1420"><a class="md-toc-inner" href="#111v111-order-driven-vs-quote-driven-markets">111.v111 Order-Driven vs. Quote-Driven Markets</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n1465"><a class="md-toc-inner" href="#summary">Summary</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1467"><a class="md-toc-inner" href="#overview-of-equity">Overview of Equity </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1487"><a class="md-toc-inner" href="#valuing-equity">Valuing Equity</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1509"><a class="md-toc-inner" href="#trading-equity">Trading Equity</a></span></p></div><h2><a name="0-introduction" class="md-header-anchor"></a><span>0. Introduction</span></h2><p><span>Equity markets have undergone profound changes in recent years. </span><mark><span>The majority of trading still takes place on stock exchanges</span></mark><span>, with </span><mark><span>the bulk of business concentrated in a small number of countries</span></mark><span>. But there has been consolidation among traditional exchanges, while the market has also seen </span><mark><span>fragmentation with the emergence of new trading venues</span></mark><span>. Alongside these developments, equity trading has been completely transformed by </span><mark><span>high frequency trading firms</span></mark><span>. This tutorial describes these structural changes in addition to providing an overview of some basic equity market concepts, such as the different types of equity security and fundamental stock valuation metrics.</span></p><h2><a name="1-overview-of-equity" class="md-header-anchor"></a><span>1. Overview of Equity</span></h2><h3><a name="11-what-is-equity" class="md-header-anchor"></a><span>1.1 What is Equity?</span></h3><p><span>Companies require capital for many reasons – the acquisition of other companies, expansion into new markets, product development, and so on. Whatever the reason, </span><mark><span>one method of acquiring capital is to sell equity in the business.</span></mark></p><p><span>The term “equity” is used to describe a </span><mark><strong><u><span>tradable security evidencing ownership or perpetual participation in a company</span></u></strong></mark><span> (more on this below). </span><u><strong><span>Equity securities are also referred to as shares or (collectively) stock.</span></strong></u><span> Similarly, the terms shareholder and stockholder (representing owners of such securities) can be used interchangeably.</span></p><p><span>If a company issues 10 shares, each share represents 10% ownership of the company. If it issues 50 shares, each share represents 2% ownership, and so on. In practice, </span><strong><u><span>most companies issue millions of shares, so each share represents only a tiny percentage of ownership.</span></u></strong></p><p><span>Equity </span><em><span>markets</span></em><span> emerge when these </span><mark><span>transferable shares trade between investors on stock exchanges and other trading venues</span></mark><span>.</span></p><blockquote><ul><li><p><span>Private Equity</span></p><p><strong><span>Not all equity is tradable. Equity is often held privately, particularly in new or family enterprises.</span></strong><span> There is also a substantial private equity (PE) industry consisting of specialist firms that </span><mark><span>provide medium- to long-term financing to companies that are (usually) not quoted on public markets.</span></mark><span> These PE firms help to fill the </span><strong><span>“equity gap”</span></strong><span> – </span><u><span>the missing link between owners’ or founders’ capital and public capital markets.</span></u></p><p><span>The decision to go public or remain a private company is often an extremely challenging one for many businesses. Some firms make the </span><u><strong><span>transition from a private to a public entity as the business expands and requires more capital.</span></strong></u><span> Others may </span><strong><u><span>reverse back</span></u></strong><span> to trading as a private company for strategic reasons – when a </span><u><span>PE firm acquires the stock of a publicly-traded company, it is referred to as a </span><mark><span>&quot;take-private&quot; transaction</span></mark><span>.</span></u></p></li></ul></blockquote><h3><a name="111-equity--capital-structure" class="md-header-anchor"></a><span>1.11 Equity &amp; Capital Structure</span></h3><p><u><strong><mark><span>Equity</span></mark><span>, along with </span><mark><span>debt</span></mark><span>, makes up a firm’s </span><mark><span>capital structure</span></mark><span>.</span></strong></u><span> </span><strong><span>Equity</span></strong><span> is at the </span><strong><span>base</span></strong><span> of this structure. </span><u><span>Stockholders have the most control and benefit most from a firm’s growth, but also have ultimate responsibility</span></u><span>.</span></p><p><mark><span>Equity initially</span></mark><span> </span><u><span>consists of the funds injected by </span><mark><span>owners</span></mark><span> in order to </span><mark><span>start a business</span></mark><span>.</span></u><span> Thereafter, </span><strong><span>profits/losses only accrue to equity</span></strong><span> </span><mark><span>after any debt service payments</span></mark><span>. </span></p><ul><li><span>If </span><u><span>profits are greater than debt repayments,</span></u><span> the value of equity will grow. </span></li><li><span>But equity is “</span><strong><span>last in the queue</span></strong><span>” in the event of </span><mark><span>liquidation</span></mark><span> – any equity value will be whatever residual is left after repayment of outstanding debt. </span></li><li><span>In the case of </span><mark><span>bankruptcy</span></mark><span>, this amount is usually zero.</span></li></ul><p><span>In practice, a firm’s capital structure is more </span><em><span>complicated</span></em><span> than simply debt versus equity. Both debt and equity are likely to be split into different classes, with </span><u><span>senior classes taking priority in the liquidation queue.</span></u></p><h3><a name="1111-common-stock-vs-preferred-stock" class="md-header-anchor"></a><span>1.111 Common Stock vs. Preferred Stock</span></h3><p><span>There are two main types of equity security – common stock and preferred stock.</span></p><h4><a name="common-stock" class="md-header-anchor"></a><strong><span>Common Stock</span></strong></h4><p><span>As the name implies, common stock is the </span><mark><span>most popular form</span></mark><span> of stock and the </span><mark><span>bedrock of a firm’s capital structure</span></mark><span>. Common stockholders have </span><u><strong><span>①voting rights</span></strong></u><span> in most cases and are entitled to </span><strong><u><span>②dividend payments</span></u></strong><span> (if the issuer declares a dividend). Shares of common stock are known as </span><u><span>ordinary shares</span></u><span> in some equity markets, such as the UK and other Commonwealth countries.</span></p><h4><a name="preferred-stock" class="md-header-anchor"></a><strong><span>Preferred Stock</span></strong></h4><p><span>While most equity is in the form of common stock, companies may choose to </span><u><span>expand their capital structure</span></u><span> by issuing preferred stock (referred to as preference shares in some </span><strong><span>jurisdictions</span></strong><span>). </span><u><span>Preferred stock usually comes with a </span><strong><mark><span>fixed dividend payment</span></mark></strong><span>, but generally does </span><mark><span>not offer the same voting rights</span></mark><span> as common stock.</span></u><span> Many market participants view preferred stock as </span><strong><u><span>a hybrid of a debt and equity security.</span></strong></u></p><h3><a name="11v-common-stock-voting-rights" class="md-header-anchor"></a><span>1.1v Common Stock: Voting Rights</span></h3><p><span>Shares of common stock usually carry </span><mark><span>voting rights allowing shareholders to act as owners.</span></mark><span> This entitles them to </span><u><span>vote for the board of directors each year, as well as on other important corporate matters that may arise.</span></u></p><p><u><span>Shareholders are not involved with the day-to-day management</span></u><span> of a company (except for any executives with equity stakes), but </span><u><span>the </span><mark><span>board requires a majority of votes</span></mark><span> to support major decisions.</span></u></p><p><span>Because most shareholders cannot or do not want to attend meetings, they have the option of </span><u><span>voting by </span><strong><span>proxy</span></strong><span> online, by mail, or by telephone</span></u><span>. When voting by proxy, shareholders authorize someone else – such as a broker, financial adviser, fund manager, or member of the company&#39;s management – to </span><u><span>vote in accordance with their(shareholders) instructions.</span></u><span> In practice, most investors </span><u><span>do not own enough shares to influence decisions</span></u><span> – it is </span><mark><span>institutional and wealthy individual investors that exert influence.</span></mark></p><h3><a name="1v-common-stock-dividends" class="md-header-anchor"></a><span>1.v Common Stock: Dividends</span></h3><p><span>Shareholders in many companies receive a </span><mark><span>regular distribution</span></mark><span> called a dividend. This is usually </span><u><strong><span>some portion of the company’s profits/earnings,</span></strong></u><span> and dividends rise and fall alongside a company’s fortunes or misfortunes.</span></p><p><span>If a dividend is declared, its size is </span><u><span>determined by management</span></u><span> and then </span><u><span>authorized by a shareholder vote.</span></u></p><p><span>But there is </span><mark><span>no obligation on a company to make a dividend payout</span></mark><span>, and </span><u><strong><span>dividend policy varies from one firm to another</span></strong></u><span>. A company may pay no dividend even when very profitable. Rather than paying a dividend, management may decide to retain earnings if it feels this will benefit future growth.</span></p><h4><a name="passing-the-dividend" class="md-header-anchor"></a><strong><span>Passing the Dividend</span></strong></h4><p><span>After a </span><mark><span>loss</span></mark><span>, companies – even those that have historically paid regular dividends – sometimes choose to </span><mark><span>retain cash by “passing” the dividend</span></mark><span> (that is, paying out nothing). However, this may cause a </span><mark><span>loss in investor confidence</span></mark><span>. For instance, the decision by Nokia – the once-powerful Finnish mobile phone manufacturer – to withhold a dividend payment for the first time in its 148-year history in early 2013 triggered a strong reaction from shareholders, with its stock price sliding by 5.5%. As a result, rather than passing a dividend many companies choose to continue to pay something out of residual resources.</span></p><blockquote><ul><li><p><span>Dividend Policy</span></p><p><span>Dividend policy </span><u><span>varies across companie</span></u><span>s, with some of the world’s corporate giants having radically different policies when it comes to dividend payments.</span></p><p><span>At the time of writing, neither Google nor Amazon have ever made any dividend payments to investors. Microsoft never paid a single dividend until 2003, but has paid regular dividends since then. Another tech giant, Apple, has been paying regular dividends since July 2012, but prior to that it had not made a single dividend payment since 1995. Warren Buffett&#39;s Berkshire Hathaway has never paid a dividend in its entire history – the company is such an active acquirer of businesses that retaining cash flow is a key element of its success. By contrast, Coca-Cola has made hundreds of consecutive quarterly dividend payments since 1920.</span></p></li></ul></blockquote><h3><a name="1v1-types-of-dividend" class="md-header-anchor"></a><span>1.v1 Types of Dividend</span></h3><p><span>Companies may declare a number of different types of dividend:</span></p><h4><a name="cash-dividend" class="md-header-anchor"></a><strong><span>Cash Dividend</span></strong></h4><p><span>Dividend payments are normally expressed as </span><mark><span>a cash amount per share</span></mark><span> (for example, USD 0.28 per common share or GBP 0.11 per ordinary share). Cash dividends are usually termed </span><mark><span>“regular cash dividends</span></mark><span>,” </span><u><span>indicating that the company expects to </span><strong><span>maintain the dividend payment</span></strong><span> in the future</span></u><span>. Dividends are usually paid out on a </span><strong><u><span>quarterly or semiannual basis</span></u></strong><span>, but can also be paid out </span><u><strong><span>annually or even monthly</span></strong></u><span> depending on the company.</span></p><h4><a name="stockscrip-dividend" class="md-header-anchor"></a><strong><span>Stock/Scrip Dividend</span></strong></h4><p><u><strong><span>These dividends pay out </span><mark><span>stock</span></mark><span> instead of cash</span></strong></u><span>. Each shareholder </span><u><span>receives additional shares in the issuing company</span></u><span> (or </span><u><span>another company held by the issuer</span></u><span>). Stock dividends are usually issued in </span><strong><span>proportion</span></strong><span> to shares owned. For example, for every 100 shares of stock owned, a 5% stock dividend will yield five additional shares (if any fractional shares are </span><mark><span>left over, a cash</span></mark><span> dividend is paid). Stock dividends are similar to </span><mark><strong><span>stock splits</span></strong></mark><span> in that both </span><u><strong><span>increase the number of shares outstanding and reduce the value of each share.</span></strong></u><span> (A </span><strong><span>stock split</span></strong><span> occurs when a company </span><u><span>increases the number of its outstanding shares without raising any new equity capital</span></u><span>.)</span></p><h4><a name="property-dividend" class="md-header-anchor"></a><strong><span>Property Dividend</span></strong></h4><p><span>Apart from cash and stock dividends, companies can also pay property dividends. These take the </span><mark><span>form of any asset with tangible value</span></mark><span> (usually </span><u><span>products or services that the company produces</span></u><span>). Property dividend payments are relatively </span><u><span>rare</span></u><span>.</span></p><h4><a name="special-dividend" class="md-header-anchor"></a><strong><span>Special Dividend</span></strong></h4><p><span>Occasionally, companies may declare a special </span><u><span>one-time dividend,</span></u><span> which is </span><u><strong><span>in </span><mark><span>addition</span></mark><span> to regular dividends</span></strong></u><span>. Special dividends can occur for a variety of reasons, such as very strong earnings results or the disposal of a subsidiary. </span><u><span>They can take the form of cash, stock, or property.</span></u></p><h3><a name="1-v1-dividend-announcements--key-dates" class="md-header-anchor"></a><span>1. v1 Dividend Announcements &amp; Key Dates</span></h3><p><span>There are a number of </span><u><mark><span>important dates</span></mark><span> to be considered in relation to </span><mark><span>dividend payments</span></mark><span> because they cause </span><mark><span>short-term price swings</span></mark><span>.</span></u><span> Let’s look at these using a Microsoft dividend announcement as an example.</span></p><blockquote><ul><li><p><span>Example</span></p><p><strong><span>Redmond, Washington: </span><u><span>November 29, 2017</span></u></strong>
+<span>Microsoft Corp. today announced that its board of directors declared a quarterly dividend of </span><u><span>USD 0.42 per share</span></u><span>. The dividend is payable </span><u><span>March 8, 2018</span></u><span> to shareholders of record on </span><u><span>February 15, 2018.</span></u><span> The ex-dividend date will be </span><u><span>February 14, 2018.</span></u></p><p><em><span>Source: Microsoft Investor Relations</span></em></p></li></ul></blockquote><p><span>The key dates in this dividend announcement by Microsoft are November 29, 2017 (</span><mark><strong><span>declaration date</span></strong></mark><span>), February 15, 2018 (</span><strong><mark><span>record date</span></mark></strong><span>), February 14, 2018 (</span><mark><strong><span>ex-dividend date</span></strong></mark><span>), and March 8, 2018 (</span><mark><strong><span>payment/payable date</span></strong></mark><span>).</span></p><h4><a name="declaration-date" class="md-header-anchor"></a><strong><span>Declaration Date</span></strong></h4><p><span>The declaration date is </span><mark><span>the day of the announcement of a dividend payment.</span></mark><span> The </span><u><span>announcement statement includes the size of the dividend payment (USD 0.42 per share in Microsoft&#39;s case) and the relevant dates regarding payment.</span></u><span> Once declared, companies are legally required to pay dividends.</span></p><p><span>Dividend declarations can </span><u><span>drive </span><mark><span>stock prices</span></mark><span> up or down depending on the </span><strong><span>context and market reaction</span></strong><span>.</span></u><span> Investors </span><u><span>examine measure</span></u><span>s such as the </span><u><strong><span>dividend yield and the dividend payout ratio</span></strong></u><span> (more on these later).</span></p><h4><a name="record-date" class="md-header-anchor"></a><strong><span>Record Date</span></strong></h4><p><span>The record date is </span><strong><mark><span>the day on which it is decided who receives the dividend payments</span></mark></strong><span>. In other words, </span><u><strong><span>all &quot;shareholders of record&quot; on this date are entitled to the dividend payment.</span></strong></u><span> The record date is </span><u><span>typically a couple of months after</span></u><span> the announcement (February 15, 2018 in the Microsoft example).</span></p><h4><a name="ex-dividend-date" class="md-header-anchor"></a><strong><span>Ex-Dividend Date</span></strong></h4><p><span>Ex-dividend means &quot;without the dividend.&quot; </span><mark><strong><span>Investors who buy stocks </span><u><span>on or after</span></u><span> the ex-dividend date are not entitled to the dividend declared before this date</span></strong></mark><span>. For instance, investors that bought Microsoft shares on or after February 14, 2018 would not be entitled to the dividend declared on November 29, 2017. </span><mark><span>Instead, the sellers of the shares would get the dividend.</span></mark><span> The ex-dividend date (or &quot;ex-date&quot;) is</span>
+<span>usually </span><mark><u><span>one business day prior</span></mark><span> to the record date.</span></u><span> </span><u><span>Prior to the ex-date, the stock is said to trade &quot;</span><mark><span>cum-dividend.</span></mark><span>&quot;</span></u><span> </span></p><p><span>The price of stocks </span><u><span>tends to </span><mark><span>rise</span></mark><span> as the </span><mark><span>ex-date approaches</span></mark><span> by roughly </span><mark><span>the amount of the dividend</span></mark><span> payment and then </span><mark><span>fall</span></mark><span> by a similar amount </span><mark><span>after the ex-date</span></mark><span>.</span></u></p><h4><a name="payment-date" class="md-header-anchor"></a><strong><span>Payment Date</span></strong></h4><p><span>The payment (or payable) date is </span><mark><span>the date on which dividend payments are actually made,</span></mark><span> either directly to shareholders or by crediting their brokerage accounts. The payment date could be </span><u><span>as much as 1-2 months after the record date</span></u><span> (in the Microsoft example the payment date was March 8, 2018, about three weeks after the record date).</span></p><h3><a name="1v11-common-stock" class="md-header-anchor"></a><span>1.v11 Common Stock</span></h3><h4><a name="dualmultiple-classes" class="md-header-anchor"></a><strong><span>Dual/Multiple Classes</span></strong></h4><p><span>In some jurisdictions, companies may issue dual or multiple classes of common stock where </span><mark><span>each class has the </span><u><strong><span>same dividends rights</span></strong></u><span> but </span><u><strong><span>different voting rights</span></strong></u></mark><span>.</span></p><p><span>In the US, dual classes of common stock are typically denoted as “Class A” and “Class B” shares. One of those classes (usually, but not always, </span><u><strong><span>Class A) will have “supervoting” powers.</span></strong></u></p><p><span>The main reason for a </span><u><span>dual-class share structure is to </span><strong><span>retain the </span><mark><span>voting power</span></mark><span> within a certain group of shareholders</span></strong></u><span>. For example, dual classes often emerge when the founders of a privately-held company wish to </span><u><span>expand economic ownership by going public but without ceding control.</span></u></p><p><span>Dual-class share structures have been quite common in recent times, with high-profile tech companies such as Facebook, Google, LinkedIn, and Groupon preferring such a structure when going public.</span></p><h4><a name="limited-liability" class="md-header-anchor"></a><strong><span>Limited Liability</span></strong></h4><p><span>Common stockholders have </span><strong><span>limited liability</span></strong><span>. Unlike some forms of ownership (such as some partnerships), there is </span><u><mark><span>no recourse</span></mark><span> to the other assets of shareholders if a company fails or is the subject of litigation</span></u><span>. The most that shareholders can </span><u><span>lose is the money they have invested in the stock</span></u><span> (directors and officers of the company may be liable, however).</span></p><p><span>It has been argued that limited liability encourages entrepreneurship, but equally the asymmetric risk (limited downside, unlimited upside) has been criticized for introducing an element of moral hazard.</span></p><blockquote><ul><li><p><span>Moral Hazard</span></p><p><span>Moral hazard arises when </span><u><span>a party does not guard against a risk</span></u><span> because that party is protected or insulated from the adverse consequences arising from that risk.</span></p></li></ul></blockquote><h3><a name="1v111-preferred-stock" class="md-header-anchor"></a><span>1.v111 Preferred Stock</span></h3><p><span>Like common stock, preferred stock represents a form of </span><mark><span>ownership</span></mark><span> in a company. But it is true to say that there are more differences between them than similarities, particularly in terrms of dividends, voting rights, and risk.</span></p><h4><a name="dividends" class="md-header-anchor"></a><strong><span>Dividends</span></strong></h4><p><span>Preferred stock dividends are </span><u><span>akin to coupons on bonds.</span></u><span> Unlike common stock, the </span><mark><span>amount paid is not dependent on company performance.</span></mark><span> Dividends are usually </span><strong><u><span>fixed and expressed as a percentage of a underlying notional principal</span></u></strong><span> (par value). Dividends are paid to </span><strong><span>preferred stockholders</span></strong><span> </span><mark><span>before</span></mark><span> any dividend distributions are made to </span><strong><span>common stockholders</span></strong><span>.</span></p><h4><a name="voting-rights" class="md-header-anchor"></a><strong><span>Voting Rights</span></strong></h4><p><span>In contrast to common stockholders, </span><u><span>preferred stockholders usually have </span><mark><span>no voting rights</span></mark></u><span> (but this may vary depending on the company issuing the stock).</span></p><h4><a name="riskrank" class="md-header-anchor"></a><strong><span>Risk/Rank</span></strong></h4><p><span>Preferred stock carries </span><mark><span>less risk</span></mark><span> than common stock. The </span><u><strong><span>claims</span></strong></u><span> of preferred stockholders </span><u><strong><span>rank higher</span></strong></u><span> in the bankruptcy queue than those of common stockholders.</span></p><h4><a name="types-of-preferred-stock" class="md-header-anchor"></a><strong><span>Types of Preferred Stock</span></strong></h4><p><span>Companies may issue preferred stock with a number of different features.</span></p><h5><a name="cumulative" class="md-header-anchor"></a><strong><span>Cumulative</span></strong></h5><p><span>Many preferred stock issues are cumulative, which means that </span><strong><mark><span>dividends accrue</span></mark><span> even though they are not actually paid</span></strong><span>. If a company is short of cash, the payment of dividends may be suspended. When the situation improves and dividend payments resume, the company is obliged to </span><mark><span>compensate cumulative</span></mark><span> </span><u><strong><span>preferred stockholders</span></strong></u><span> for any missed dividends </span><u><span>before any payments are made to common stockholders</span></u><span>. For </span><u><span>noncumulative shares, the (missed) dividend is forgone forever</span></u><span>.</span></p><h5><a name="redeemable" class="md-header-anchor"></a><strong><span>Redeemable</span></strong></h5><p><span>Preferred stock may be </span><mark><span>perpetual or have a fixed maturity date</span></mark><span> (usually very long-term). Some issues are redeemable – like a callable bond, the </span><u><strong><span>issuer has the option to buy the stock back.</span></strong></u></p><h5><a name="convertible" class="md-header-anchor"></a><strong><span>Convertible</span></strong></h5><p><span>Holders of convertible preferred stock </span><mark><span>have the option to convert their shares into common stock</span></mark><span> using a predetermined formula. </span><u><em><span>Mandatory</span></em><span> convertible</span></u><span> stock is automatically converted into common stock at pre-specified dates.</span></p><p><u><span>Convertible preferred stock is also usually callable</span></u><span>. This enables the issuer to call the stock and force preferred stockholders to choose between </span><u><span>accepting either par value or shares of common stock</span></u><span> (forced conversion).</span></p><h5><a name="participating" class="md-header-anchor"></a><strong><span>Participating</span></strong></h5><p><span>Participating preferred stockholders are entitled to a </span><mark><span>further share of the profits</span></mark><span> of the issuer </span><u><span>through the (acceptance to) payment of a participating dividend</span></u><span> (after common stockholders have received their dividend). Most preferred stock issues are nonparticipating.</span></p><h3><a name="11v-other-types-of-equity-security" class="md-header-anchor"></a><span>1.1v Other Types of Equity Security</span></h3><h4><a name="warrants" class="md-header-anchor"></a><strong><span>Warrants</span></strong></h4><p><span>A warrant gives the holder </span><mark><span>the right</span></mark><span>, but </span><mark><span>not the obligation,</span></mark><span> at </span><u><span>some time in the future</span></u><span> to exercise the warrant and </span><mark><span>purchase a number of shares at a pre-agreed (strike) price</span></mark><span>. Companies may sell warrants in order to generate immediate revenue in exchange for potential future obligations. As with convertible preferred stock/bonds, warrants may </span><u><span>result in new shares being issued in the future</span></u><span>. This causes </span><mark><strong><span>dilution</span></strong></mark><span> – the pool of profits must be shared more broadly.</span></p><blockquote><ul><li><p><span>Example</span></p><p><strong><span>Making Money from Warrants &amp; Preferred Stock</span></strong>
+<span>In 2008, at the height of the financial crisis, Berkshire Hathaway (the investment company of Warren Buffett) purchased USD 5 billion perpetual preference shares in a leading US investment bank that paid a dividend of 10%. It also bought warrants on USD 5 billion shares at a low strike price.</span></p><p><span>At the time, the bank was in need of a capital injection. But it retained the right to repurchase the preferred stock at a 10% premium, which it did when profitability returned in 2011. Berkshire Hathaway thus made a profit of USD 500 million from the shares, as well as receiving a dividend of USD 500 million per year.</span></p><p><span>In 2013, following a rise in the bank’s stock price, Berkshire Hathaway also exercised its warrants. This was done in a cashless transaction using the implicit profits (difference between the market price and strike price). Berkshire Hathaway received an equity stake in the bank worth over USD 2 billion without spending a single cent.</span></p></li></ul></blockquote><h4><a name="depositary-receipts" class="md-header-anchor"></a><strong><span>Depositary Receipts</span></strong></h4><p><span>Depositary receipts (DRs) are </span><mark><span>negotiable instruments issued by depositary banks</span></mark><span> (custodians) that </span><mark><span>represent ownership of a specified number of shares</span></mark><span> of a </span><u><strong><span>foreign company</span></strong></u><span>. The receipts trade </span><u><strong><span>independently of the underlying shares.</span></strong></u><span> Dividends and voting rights usually transfer to DR holders.</span></p><p><span>Depositary receipts allow domestic investors to purchase foreign stocks using an instrument denominated </span><u><strong><span>in their own currency</span></strong></u><span>. For example, </span><strong><span>American depositary receipts (ADRs)</span></strong><span> permit the trading of foreign stocks in the US while avoiding problems associated with the trading of such stocks (such as the transfer of securities overseas and currency conversions).</span></p><p><span>Depositary receipts originated as ADRs in 1927, but the concept spread as issuers discovered the advantages in making their shares available in a form convenient not only to US investors but also to investors elsewhere. </span><strong><span>Global depositary receipts (GDRs)</span></strong><span> are used to </span><strong><u><span>access two or more markets</span></u></strong><span> around the world, and are typically issued by emerging market companies and sold to </span><u><strong><span>professional investors only.</span></strong></u></p><p><span>Other variations on the theme include depositary receipts traded in Europe (EDRs), China (CDRs), Japan (JDRs), and Hong Kong (HDRs).</span></p><h4><a name="exchange-traded-funds" class="md-header-anchor"></a><strong><span>Exchange-Traded Funds</span></strong></h4><p><span>Some instruments allow investors to </span><mark><span>gain equity exposure to multiple companies</span></mark><span>. In the US, Standard &amp; Poor’s depositary receipts (SPDRs or “spiders”) are DRs containing the constituent stocks of the S&amp;P 500 stock index. As the index value changes, so does the price of the SPDR.</span></p><p><span>SPDRs are actually a type of exchange-traded fund (ETF). An ETF is traded on the stock market in the same way </span><u><span>as an individual stock</span></u><span>, </span><u><strong><span>but its value is derived from multiple stocks or assets according to a set of prearranged rules</span></strong></u><span>.</span></p><p><span>Initially, ETFs were simply passive investment funds designed to </span><u><strong><span>replicate (track) the performance of a stock market or sector index</span></strong></u><span>. But the complexity and sophistication of the sector has grown quite rapidly, and there are ETFs today that are based on other asset classes and more </span><u><strong><span>sophisticated investment strategies.</span></strong></u></p><h2><a name="2-valuing-equity" class="md-header-anchor"></a><span>2. Valuing Equity</span></h2><h3><a name="111-how-are-stocks-valued" class="md-header-anchor"></a><span>11.1 How are Stocks Valued?</span></h3><p><span>No one yet has been able to come up with a definitive answer to the key question, </span><em><span>“What is a stock worth?”</span></em></p><p><span>At one end of the scale are academic dividend discount models (DDMs) where the stock price should be equal to the present value of expected future dividends. But future dividends are unknown and may not grow in a steady fashion. A company may not currently pay a dividend at all, or might be dissolved or taken over before paying anything – but it is not worthless.</span></p><p><span>At the other end of the scale, a stock’s value can simply be defined as </span><em><span>“what somebody else is willing to pay for it.”</span></em><span> Although this may be more practical, it is unfortunately rather circular.</span></p><p><span>Most practical stock valuations can be divided into two areas – technical and fundamental analysis. Let&#39;s take a look at the difference between these.</span></p><h3><a name="1111-technical-vs-fundamental-analysis" class="md-header-anchor"></a><span>11.11 Technical vs. Fundamental Analysis</span></h3><h4><a name="technical-analysis" class="md-header-anchor"></a><strong><span>Technical Analysis</span></strong></h4><p><span>Technical analysis is the study of historical market price action to predict future price movements and trends. It involves the extraction of information from market data into objective visualizations through the use of charts, mathematics, and pattern recognition. The emphasis is placed on investor behavior, and supply and demand, to explain the current, and anticipate the future, path of a stock&#39;s price. There is no analysis of specific economic circumstances, as these are implicit in the price movements.</span></p><p><span>Technical analysis has been used as a trading discipline for hundreds of years. There are accounts of &quot;charting&quot; being used to trade during the episode of &quot;Tulip Mania&quot; in the 17th century, while in the 18th century Munehisa Homma used candlestick charts to amass a fortune trading rice in Japan. Today, technical analysis can be used as a standalone trading technique or incorporated into a fundamental investing strategy. Further discussion of technical analysis is beyond the scope of this tutorial.</span></p><h4><a name="fundamental-analysis" class="md-header-anchor"></a><strong><span>Fundamental Analysis</span></strong></h4><p><span>Fundamental analysts focus on company-specific information as well as the overall economic/market environment. Data providers such as Thomson Reuters and Bloomberg provide price and other data that can be used to undertake fundamental analysis of a stock.</span></p><p><em><span>Take a look at the video to see an example of the price data provided on the Thomson Reuters Eikon platform.</span></em></p><h3><a name="11111-dividend-yield" class="md-header-anchor"></a><span>11.111 Dividend Yield</span></h3><p><span>Shareholders hope to benefit from capital gains as the market price of their stocks rises. But even if prices do not rise, they may receive dividend income.</span></p><p><span>The dividend yield of a stock is ratio of the annual dividend per share (DPS) to the share price.</span></p><p><em><span>Dividend Yield = Dividend per Share (DPS)/Share Price</span></em></p><p><span>Dividend yield can be calculated on an historic basis and, where dividend forecasts are available, on a forward-looking basis. It is used by analysts and investors to compare values. For instance, yields on a stock can be compared with (for example):</span></p><ul><li><span>Other stocks in the same sector</span></li><li><span>The average yield for the market/sector</span></li><li><span>Returns from other asset classes such as bonds</span></li></ul><h3><a name="111v-earnings-per-share-eps" class="md-header-anchor"></a><span>11.1v Earnings Per Share (EPS)</span></h3><p><span>The EPS measurement is conceptually simple – divide the annual net income of a company by the number of outstanding shares.</span></p><p><em><span>EPS = Net Income/Number of Outstanding Shares</span></em></p><p><span>EPS generates the amount of income or profit that can be “attributed” to each share. For instance, if a company has one million shares outstanding and a net income of USD 10 million, then the EPS is simply USD 10.</span></p><p><span>Companies usually report EPS at the same time as they announce their annual results. But accounting complications, which affect both the numerator and denominator, mean that the published figure can be difficult to interpret. Analysts may need to compute </span><strong><span>diluted EPS</span></strong><span> values that incorporate the potential creation of shares through convertibles or warrants. The earnings may be adjusted (“</span><strong><span>normalized</span></strong><span>”) to exclude extraordinary items such as business disposals or discontinued businesses.</span></p><p><span>Rather than waiting for annual statements, analysts may calculate “</span><strong><span>ttm</span></strong><span>” (trailing 12 months) EPS measurements using interim financial information (such as quarterly filings in the US).</span></p><p><span>EPS is at the base of many equity measurements, so the various adjustments make comparability difficult. Further, many calculations are based on forecast, rather than historic, earnings. Analysts’ profitability expectations (and their individual EPS estimates) will always differ, but it is sometimes possible to calculate a consensus forecast EPS using “average” estimates.</span></p><h3><a name="11v-priceearnings-pe-ratio" class="md-header-anchor"></a><span>11.v Price/Earnings (P/E) Ratio</span></h3><p><span>The P/E ratio is the relationship between the share price and EPS.</span></p><p><em><span>P/E Ratio = Share Price/EPS</span></em></p><p><span>The ratio is calculated using either historical EPS (</span><strong><span>trailing P/E</span></strong><span>) or forecast EPS. It indicates whether a company’s stock price is high or low relative to its earnings and represents the “multiple” that the market is willing to pay for the company’s earnings. If two currently identical companies have different P/E ratios, then the price of the company with the higher ratio can only be justified by expected future growth (which would lower future P/E).</span></p><blockquote><ul><li><p><span>Example</span></p><p><span>Steady Corp and Flash Corp are companies in the same industry. As the table shows, earnings (EPS) at Steady Corp are expected to grow much more slowly (2% per annum) than those at Flash Corp (35% per annum). As a result, investors are willing to pay a higher multiple today for shares of Flash Corp as its forward P/E (future earnings relative to today&#39;s price) in year 2 is below than that of Steady Corp. (Note: The calculations below were completed in Excel so there may be minor rounding differences compared to long-hand calculations.)</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>Company</span></th><th style='text-align:center;' ><span>Share Price</span></th><th style='text-align:center;' ><span>EPS (Today)</span></th><th style='text-align:center;' ><span>P/E Ratio</span></th><th style='text-align:center;' ><span>Forecast EPS (Year1)</span></th><th style='text-align:center;' ><span>Forward P/E (Year1)</span></th><th style='text-align:center;' ><span>Forecast EPS (Year2)</span></th><th style='text-align:center;' ><span>Forward P/E (Year2)</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Steady</span></td><td style='text-align:center;' ><span>10.25</span></td><td style='text-align:center;' ><span>0.6833</span></td><td style='text-align:center;' ><span>15.00</span></td><td style='text-align:center;' ><span>0.6970</span></td><td style='text-align:center;' ><span>14.71</span></td><td style='text-align:center;' ><span>0.7109</span></td><td style='text-align:center;' ><span>14.42</span></td></tr><tr><td style='text-align:center;' ><span>Flash</span></td><td style='text-align:center;' ><span>14.00</span></td><td style='text-align:center;' ><span>0.5600</span></td><td style='text-align:center;' ><span>25.00</span></td><td style='text-align:center;' ><span>0.7560</span></td><td style='text-align:center;' ><span>18.52</span></td><td style='text-align:center;' ><span>1.0206</span></td><td style='text-align:center;' ><span>13.72</span></td></tr></tbody></table></figure></li></ul></blockquote><p><span>As well as inter-company comparisons such as the example just described, it is also possible to assess P/E ratios relative to those for the overall market or a particular sector. Market P/E ratios naturally vary according to market conditions, but the value for a major developed market index typically ranges between 15 and 25.</span></p><h4><a name="cyclically-adjusted-price-earnings-cape" class="md-header-anchor"></a><strong><span>Cyclically Adjusted Price-Earnings (CAPE)</span></strong></h4><p><span>The CAPE measure was devised by Nobel prize-winning economist Robert Shiller (hence its alternate name, the Shiller P/E). It is used in a similar way to P/E when assessing value, but is designed to eliminate short-term distortions by looking at ten years of earnings rather than simply the last 12 months.</span></p><p><span>The CAPE measure has been popular with investors when assessing the value of total markets, but it may not be easy to apply to individual stocks – the current prospects of a company may have nothing to do with how the company looked ten years ago.</span></p><h3><a name="11v1-priceearnings-to-growth-peg-ratio" class="md-header-anchor"></a><span>11.v1 Price/Earnings to Growth (PEG) Ratio</span></h3><p><span>Another popular valuation tool is the PEG ratio, which is calculated by dividing the P/E ratio by the expected EPS growth rate.</span></p><p><strong><span>PEG Ratio = P/E Ratio/Projected EPS Growth Rate</span></strong></p><blockquote><ul><li><p><span>Example</span></p><p><span>Let&#39;s return to our example involving Steady Corp and Flash Corp to calculate the PEG for both stocks using the formula above.</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>Company</span></th><th style='text-align:center;' ><span>P/E Ratio</span></th><th style='text-align:center;' ><span>Projected EPS Growth (%)</span></th><th style='text-align:center;' ><span>PEG Ratio</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>Steady Corp</span></td><td style='text-align:center;' ><span>15.00</span></td><td style='text-align:center;' ><span>2</span></td><td style='text-align:center;' ><span>7.5</span></td></tr><tr><td style='text-align:center;' ><span>Flash Corp</span></td><td style='text-align:center;' ><span>25.00</span></td><td style='text-align:center;' ><span>35</span></td><td style='text-align:center;' ><span>0.71</span></td></tr></tbody></table></figure></li></ul></blockquote><p><span>As a general rule of thumb, a stock that is “fairly priced” will have a P/E ratio equal to its growth rate (that is, a PEG of 1). If a stock’s PEG is greater than 1, then the stock is “expensive.” Conversely, if the PEG is less than 1, the stock is “cheap.”</span></p><p><span>A major weakness of the PEG ratio is that it relies heavily on earnings estimates, which are often wrong.</span></p><h3><a name="11v11-stock-classification" class="md-header-anchor"></a><span>11.v11 Stock Classification</span></h3><p><span>Stock valuation metrics lose meaning without context – you cannot easily compare measurements for a high-tech US firm with those for an emerging market oil company.</span></p><p><span>A number of investment strategies differentiate between types of stock, and many ETFs passively replicate strategies based on such classifications. The most important distinctions relate to:</span></p><ul><li><span>Industry/sector</span></li><li><span>Geography</span></li><li><span>Financial characteristics/investment objectives</span></li></ul><p><span>Let’s take a look at each of these.</span></p><h4><a name="industrysector" class="md-header-anchor"></a><strong><span>Industry/Sector</span></strong></h4><p><span>Stocks can be classified by industrial sectors and subsectors. Holding stocks in different sectors helps to ensure that an investor’s portfolio is diversified across different types of industry.</span></p><p><span>A number of the world’s leading stock exchanges – including the NYSE, NASDAQ OMX, and the London Stock Exchange – use the </span><a href='http://www.icbenchmark.com/'><span>Industry Classification Benchmark (ICB) system</span></a><span>. The ICB has a four-level hierarchy consisting of:</span></p><ul><li><span>10 industries</span></li><li><span>19 supersectors</span></li><li><span>41 sectors</span></li><li><span>114 subsectors</span></li></ul><p><span>An alternative to the ICB system is the </span><a href='http://www.msci.com/products/indexes/sector/gics/'><span>Global Industry Classification Standard (GICS)</span></a><span>, which has a hierarchy consisting of:</span></p><ul><li><span>11 sectors</span></li><li><span>24 industry groups</span></li><li><span>68 industries</span></li><li><span>157 sub-industries</span></li></ul><h4><a name="geography" class="md-header-anchor"></a><strong><span>Geography</span></strong></h4><p><span>Sector classifications are complemented by geographic ones. Although it is possible to compare (for example) banks all over the world, it may also be important to compare banks within a single geographic area.</span></p><blockquote><ul><li><p><span>Home Country Bias</span></p><p><span>The investment decisions of many investors are influenced by location, with evidence that investors tend to invest more than would otherwise be expected in stocks that are geographically close to them.</span></p><p><span>Such disproportionate investment is consistent with the notion that investors tend to favor companies with which they are familiar. Local media coverage and word-of-mouth information would appear to cause this bias in investment decisions.</span></p><p><span>Some studies have gone further and suggested that the bias in holding local stocks actually results in superior returns. The reasoning here is that the local bias is driven by informational advantages, not just familiarity, and that investors are exploiting such informational advantages by overweighting local stocks in their portfolios.</span></p></li></ul></blockquote><h4><a name="financial-characteristicsinvestment-objectives" class="md-header-anchor"></a><strong><span>Financial Characteristics/Investment Objectives</span></strong></h4><p><span>Stocks can also be classified according to their financial characteristics and/or the way in which they suit particular investment objectives.</span></p><h5><a name="growth-stocks" class="md-header-anchor"></a><strong><span>Growth Stocks</span></strong></h5><p><span>Growth stocks are typically young companies that are expected to grow quickly in the future. They are usually characterized by a high current P/E and a PEG greater than 1 because investors are willing to pay more for a stock that is expected to grow rapidly. Some growth companies may have insignificant profits and low or non-existent dividends, so dividend yields tend to be low. Returns to investors will be in the form of capital appreciation rather than dividend income. Investors are happy to wait for future profitability and focus on indicators such as rapid revenue growth or cash generation.</span></p><h5><a name="value-stocks" class="md-header-anchor"></a><strong><span>Value Stocks</span></strong></h5><p><span>Value stocks are those that are perceived to be undervalued by the stock market relative to their fair or intrinsic market value (the discounted value of all future distributions). Value investors believe that the current price of some stocks has been driven too low and no longer reflects either existing assets and/or future growth. Returns can be generated from a recovering price, as well as any interim dividend income.</span></p><p><span>There is no simple agreed standard for judging the attractiveness of value stocks, but target companies are usually asset-rich with little debt. They have low P/E and PEG measurements together with high dividend yields.</span></p><p><span>Benjamin Graham popularized the value investing approach in 1949 in his book </span><em><span>“The Intelligent Investor.”</span></em><span> Warren Buffett is the most famous proponent of the value investing approach – he once said that </span><em><span>“Price is what you pay. Value is what you get.”</span></em></p><h5><a name="income-stocks" class="md-header-anchor"></a><strong><span>Income Stocks</span></strong></h5><p><span>Income stocks tend to be large, mature companies with high dividend yields, a low perceived risk of bankruptcy, and a well-established dividend payment history. Income investors expect most of their returns to come from dividend income rather than company growth and capital gains.</span></p><p><span>As well as a high dividend yield, investors focus on </span><strong><span>dividend cover</span></strong><span> (the inverse of the dividend payout ratio). Dividend cover measures the number of times a company is capable of paying dividends to shareholders from its earnings.</span></p><p><em><span>Dividend Cover = EPS/DPS</span></em></p><p><span>For example, if a company has an EPS of USD 0.50 and DPS of 0.20 then its dividend cover is 2.5.</span></p><p><span>A dividend cover of 2 or more is usually regarded as an indicator that the dividend is easily affordable. A ratio of less than 1 is unsustainable, as the company must dig into previous years’ earnings. If the dividend cover is too high, then income investors may be disappointed that the board did not declare a larger dividend.</span></p><h3><a name="11v111-market-indices" class="md-header-anchor"></a><span>11.v111 Market Indices</span></h3><p><span>Stock indices allow market participants to benchmark performance against that of the overall market. A stock index resembles a fictitious portfolio. As prices of stocks in the portfolio (index) change, so does the level of the index.</span></p><p><span>Indices exist for all major stock markets and many sectors and subsectors. Charles Dow created the first indices in the 19th century, the most famous of which is the Dow Jones Industrial Average (DJIA).</span></p><p><span>Some indices such as the DJIA are </span><strong><span>price-weighted</span></strong><span> in that the index level is simply the sum of the prices of the underlying stocks divided by the number of companies. Other indices, such as the S&amp;P 500 and the FTSE 100, are </span><strong><span>market cap-weighted</span></strong><span> – the importance of a stock within an index is in proportion to its market capitalization.</span></p><p><span>Indices are constructed according to strict eligibility criteria in order to reflect market or sector performance. Although some indices are designed to reflect the performance of an overall market, most indices are compiled using subsets of the universe of stocks. For instance, world-renowned indices – such as the DJIA and the FTSE 100 – contain blue-chip stocks only.</span></p><h2><a name="3-trading-equity" class="md-header-anchor"></a><span>3. Trading Equity</span></h2><h3><a name="1111-a-perspective-on-equity-trading" class="md-header-anchor"></a><span>111.1 A Perspective on Equity Trading</span></h3><blockquote><p><span>The U. S. stock market was now a class system, rooted in speed, of haves and have-nots. The haves paid for nanoseconds; the have-nots had no idea that nanoseconds had value. The haves enjoyed a perfect view of the market; the have-nots never saw the market at all.</span></p><p><span>-</span><span> Michael L ewis, Financial Journalist &amp; Author, Quoted in his</span>
+<span>book, &quot;Flash Boys: A Wall Street Revolt”</span></p></blockquote><h3><a name="11111-the-changing-nature-of-stock-markets" class="md-header-anchor"></a><span>111.11 The Changing Nature of Stock Markets</span></h3><p><span>For hundreds of years, stock market trading was very distinct and defined. Trading generally took place at a specific geographic location (stock exchange) where traders would stand in “pits” and shout out prices in a seemingly chaotic fashion.</span></p><p><span>Today, the notion of a market such as this is almost alien. Advances in technology mean that floor trading has died out and most trading previously conducted manually on exchange floors now takes place electronically. While physical exchanges still exist, they have as much in common with computer data centers these days as they do with the stereotypical image of a bustling trading floor. Buyers and sellers may be thousands of miles apart, but electronic communication means that it is straightforward to execute orders in fractions of a second.</span></p><p><span>Advances in technology have also contributed to the emergence of alternative trading venues/systems, with huge volumes of equity trading shifting from traditional stock exchanges to off-exchange “dark pools” – electronic platforms where participants can execute transactions hidden from public view.</span></p><p><span>Moreover, equity trading has never been faster, with an arms race between “high frequency traders” meaning that trade execution times are now talked of in terms of milliseconds, microseconds, and even nanoseconds.</span></p><h3><a name="111111-stock-exchanges" class="md-header-anchor"></a><span>111.111 Stock Exchanges</span></h3><p><span>The majority of equity transactions take place on recognized stock exchanges, which are regulated entities with strict rules governing trade execution and reporting.</span></p><p><span>Traditional stock exchanges provide:</span></p><ul><li><span>A </span><strong><span>primary market</span></strong><span> where companies looking to raise equity capital can issue shares of stock to investors</span></li><li><span>A </span><strong><span>secondary market</span></strong><span> where this stock, once issued, can be bought and sold</span></li></ul><p><span>Before a stock can be traded on an exchange, it must be officially listed. Stocks can be listed on multiple exchanges. In order to be listed, companies must satisfy particular listing requirements. These vary by exchange, but usually include minimum financial requirements as well as requirements related to the number of tradable shares outstanding (in order to ensure liquidity).</span></p><p><span>Note that it is not necessary for a stock to be listed on an exchange in order for it to be traded. OTC transactions can take place without listing. Moreover, the fact that a stock is listed on an exchange does not restrict trading to that particular exchange. Other trading venues can “piggyback” on a listing.</span></p><p><span>Stock exchanges have seen a wave of consolidation in recent times. For example, in 2007 the New York Stock Exchange (NYSE) became part of a broader, global, group of exchanges (NYSE Euronext). In 2013, NYSE Euronext was itself acquired by the Intercontinental Exchange (ICE) group, a global network of regulated exchanges and clearinghouses. Similarly, the NASDAQ market in the US is part of the broader NASDAQ OMX group which operates across six continents, while in Europe the London Stock Exchange Group incorporates the London Stock Exchange itself as well as Borsa Italiana (among other markets).</span></p><p>&nbsp;</p><blockquote><ul><li><p><span>Leading Exchanges</span></p><p><span>The 10 leading exchanges in the world ranked by market capitalization are listed below based on data from the World Federation of Exchanges (WFE). These 10 exchanges accounted for 75% of global market capitalization based on the WFE’s membership of about 60 exchanges (the NYSE alone accounted for about 30%). A notable absentee from this list is the London Stock Exchange Group, which is one of the largest exchanges in the world and consistently ranked in the top 5. Its absence from the WFE list is due to its decision to resign from the World Federation of Exchanges in late 2013.</span></p></li></ul><figure><table><thead><tr><th style='text-align:center;' ><span>Rank</span></th><th style='text-align:center;' ><span>Exchange</span></th><th style='text-align:center;' ><span>Market Cap (USD Billions)</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>1</span></td><td style='text-align:center;' ><span>NYSE</span></td><td style='text-align:center;' ><span>19,573,074</span></td></tr><tr><td style='text-align:center;' ><span>2</span></td><td style='text-align:center;' ><span>NASDAQ OMX</span></td><td style='text-align:center;' ><span>7,779,127</span></td></tr><tr><td style='text-align:center;' ><span>3</span></td><td style='text-align:center;' ><span>Japan Exchange Group – Tokyo</span></td><td style='text-align:center;' ><span>4,955,300</span></td></tr><tr><td style='text-align:center;' ><span>4</span></td><td style='text-align:center;' ><span>Shanghai SE</span></td><td style='text-align:center;' ><span>4,098,789</span></td></tr><tr><td style='text-align:center;' ><span>5</span></td><td style='text-align:center;' ><span>Euronext</span></td><td style='text-align:center;' ><span>3,459,874</span></td></tr><tr><td style='text-align:center;' ><span>6</span></td><td style='text-align:center;' ><span>Shenzhen SE</span></td><td style='text-align:center;' ><span>3,212,671</span></td></tr><tr><td style='text-align:center;' ><span>7</span></td><td style='text-align:center;' ><span>Hong Kong Exchanges</span></td><td style='text-align:center;' ><span>3,193,236</span></td></tr><tr><td style='text-align:center;' ><span>8</span></td><td style='text-align:center;' ><span>TMX Group</span></td><td style='text-align:center;' ><span>1,993,523</span></td></tr><tr><td style='text-align:center;' ><span>9</span></td><td style='text-align:center;' ><span>Deutsche Börse</span></td><td style='text-align:center;' ><span>1,716,042</span></td></tr><tr><td style='text-align:center;' ><span>10</span></td><td style='text-align:center;' ><span>Bombay Stock Exchange (BSE) Limited</span></td><td style='text-align:center;' ><span>1,566,681</span></td></tr></tbody></table></figure><ul><li><em><span>Source: WFE Statistics, December 2016</span></em></li></ul></blockquote><h3><a name="1111v-dark-pools--other-off-exchange-trading-venues" class="md-header-anchor"></a><span>111.1v Dark Pools &amp; Other Off-Exchange Trading Venues</span></h3><p><span>Much of the consolidation among exchanges has been in response to the competitive threat posed by the growth of other trading venues such as </span><strong><span>alternative trading systems (ATS)</span></strong><span> in the US and </span><strong><span>multilateral trading facilities (MTFs)</span></strong><span> in Europe. These do not list stocks themselves, but compete with traditional exchanges by providing an alternative venue for trading stocks listed elsewhere.</span></p><p><span>A number of ATS and MTFs operate as </span><strong><span>dark pools</span></strong><span> of liquidity. If the market becomes aware that an investor is looking to buy/sell a large number of shares then the price may move adversely. Rather than showing interest through a public market, large investors may choose to execute using a dark pool. This is a generic term used to refer to anonymous private matching systems with no advertised pre-trade prices. The anonymous nature of dark (or “unlit”) pools means that they can offer investors improved liquidity when trading large blocks of shares compared to many of the “lit” or traditional exchange venues.</span></p><p><span>Dark pools are operated by broker-dealers, independent specialist firms, and even exchanges themselves. Their opaque nature and lack of transparency does not sit comfortably with regulators and they have come under increased regulatory scrutiny in recent times.</span></p><h3><a name="111v-algorithmic-trading" class="md-header-anchor"></a><span>111.v Algorithmic Trading</span></h3><blockquote><ul><li><em><span>Algorithmic trading is a form of “black box” trading that involves the use of computer algorithms to automatically make certain trading decisions, submit orders, and manage those orders after submission.</span></em></li></ul></blockquote><p><span>The emergence of so many off-exchange trading venues has created market fragmentation and led to reduced liquidity on many exchanges, creating order execution difficulties for traders. To achieve best execution on a large order, it is often necessary for a trader to break down the order into smaller parts that are then executed on different markets.</span></p><p><span>Automated or algorithmic trading systems, which automate this process, have become major players in global equity markets. Algorithmic (“algo”) trading is a form of “black box” trading that involves the use of computer algorithms to automatically make certain trading decisions, submit orders, and manage those orders after submission. Algorithmic trading platforms are automated by mathematical and quantitative models that take input signals in the form of stock prices and filter out any background noise, detect a market signal, and then generate buy, hold, and sell signals automatically.</span></p><p><span>In principle, algorithms are built based on traders’ views on market movements and on systems whose underlying rules are determined by humans. However, once the algorithmic strategy is designed, thereafter there is little human intervention and the algorithm automatically executes the order taking account of any underlying trade fundamentals and factors.</span></p><h3><a name="111v1-high-frequency-trading-hft" class="md-header-anchor"></a><span>111.v1 High Frequency Trading (HFT)</span></h3><p><span>HFT is a particular type of automated trading approach that is distinguished by the high frequency of positions traded throughout the day and the reliance on ultra-low latency connections between trading venues and the speed of the order execution system.</span></p><p><span>High frequency traders have pushed the boundaries of developments in automated trading to create systems that are capable of sending thousands, or even millions, of buy and sell orders to a trading venue throughout the day. Nowadays, achieving ultra-low latency in the range of milliseconds for routing buy and sell orders from a HFT network server to a typical exchange is commonplace. New research and further advances in information technology and data processing are pushing latency values into the microsecond and nanosecond range. In the world of HFT, a few nanoseconds might be worth millions if it beats other high frequency traders using older, slower networks.</span></p><p><span>Like dark pools, automated and high frequency trading strategies have their fair share of critics who argue that an over-reliance on these strategies can lead to a fragile market structure and introduce risks to overall market stability. A typical example often cited by skeptics is the </span><strong><span>flash crash</span></strong><span> in May 2010 which caused the DJIA to fall by 9% before recovering swiftly.</span></p><blockquote><ul><li><p><span>Flash Crash</span></p><p><span>The flash crash of May 6, 2010 saw the DJIA decline by about 1,000 points (roughly 9%), before recovering within a matter of minutes. It was the second largest points swing and the biggest one-day points decline on an intraday basis in the DJIA’s history.</span></p><p><span>A report into the event, jointly authored by the Securities and Exchange Commission (SEC) and the Commodity Futures Trading Commission (CFTC), blamed the sudden fall on a large sell order executed using a faulty trading algorithm. In April 2015, London-based trader Navinder Singh Sarao was arrested over his role in the crash.</span></p></li></ul></blockquote><h3><a name="111v11-orders" class="md-header-anchor"></a><span>111.v11 Orders</span></h3><p><span>There are a number of different types of orders that can be executed in equity markets.</span></p><h4><a name="market-orders" class="md-header-anchor"></a><strong><span>Market Orders</span></strong><span> </span></h4><p><span>A market order is an order to buy or sell a stock immediately at the best available current price. It is the most common type of order.</span></p><p><span>Since no price is specified, market orders offer the advantage of virtually guaranteeing that the order will be executed. The drawback is that the price at which a market order will be executed is not guaranteed and may differ from the displayed last traded price. This is particularly true in fast-moving markets where prices are more volatile. Market orders involving a large block of shares may need to be filled at different execution prices.</span></p><h4><a name="limit-orders" class="md-header-anchor"></a><strong><span>Limit Orders</span></strong></h4><p><span>A limit order is an order to buy or sell a stock at a specified price or at a price better than the specified price. For example, an investor may instruct its broker to sell a particular quantity of stock at no lower than USD 15 per share. If there are sufficient bids in the market above that level, then the trade will be executed at the best level available. If not, then there is no trade. The drawback of limit orders is that it is possible that no transaction will occur at all if the market moves away from the limit level.</span></p><h4><a name="stop-orders" class="md-header-anchor"></a><strong><span>Stop Orders</span></strong></h4><p><span>A stop order is an instruction to buy or sell a stock when its price reaches a specified level, known as the stop price.</span></p><p><span>Stop orders negate the need for traders to continuously monitor the performance of their stocks. The drawback, however, is that the stop price could be activated by what amounts to a short-term fluctuation in a stock&#39;s price. Moreover, once the stop level is reached, the stop order becomes a market order and the execution price may differ somewhat from the stop price, particularly in a fast-moving market.</span></p><h4><a name="stop-limt-orders" class="md-header-anchor"></a><strong><span>Stop-limt Orders</span></strong></h4><p><span>A stop-limit order is an order to buy or sell a stock at a specified price or better after a specified stop price has been reached. It combines the features of a stop order and a limit order in that it is a stop order that specifies a price limit.</span></p><p><span>In contrast to a stop order, which becomes a market order once the stop price is reached, a stop-limit order becomes a limit order once the stop price is reached.</span></p><p><span>The benefit of stop-limit orders is that they allow traders to control the price at which a trade is executed. As with all limit orders, however, a stop-limit order may not get filled if the price does not reach the specified limit price.</span></p><h4><a name="other-orders" class="md-header-anchor"></a><strong><span>Other Orders</span></strong></h4><p><span>Other order types include orders that specify that particular trading venues be used, in addition to time-related orders such as the following:</span></p><ul><li><strong><span>Day orders</span></strong><span> automatically terminate at the end of the trading day if they have not been filled by that time.</span></li><li><strong><span>Good-‘til-canceled (GTC) orders</span></strong><span> remain in force until the order is either executed or canceled.</span></li><li><strong><span>Fill-or-kill (FOK) orders</span></strong><span> must be executed immediately in their entirety (that is, no partial execution) or else the entire order will be canceled. (An </span><strong><span>all-or-none (AON) order</span></strong><span> is similar except that immediate execution is not required.)</span></li><li><strong><span>Immediate-or-cancel (IOC) orders</span></strong><span> must be executed immediately, with any portion that cannot be filled immediately being canceled.</span></li></ul><h3><a name="111v111-order-driven-vs-quote-driven-markets" class="md-header-anchor"></a><span>111.v111 Order-Driven vs. Quote-Driven Markets</span></h3><p><span>Most major exchanges operate </span><strong><span>electronic order book (EOB)</span></strong><span> systems that match buyers and sellers with each other. Limit orders are used to create a “market view.” The highest buy orders and lowest sell orders are combined to create bids and offers. Traders who wish to buy/sell shares can enter limit orders that cross with these prices or simply enter a market order for the required amount.</span></p><p><span>The table shows a simplified example of an order book for a stock. Assume that a trader enters a market order to sell 130,000 shares.</span></p><p><span>In theory, 79,453 shares should be sold at 45.25 with the remaining 50,547 shares sold at a price of 45.00 (an average execution price of 45.15).</span></p><p><span>But in practice, the order book changes constantly and some orders may disappear due to the time lag between the decision to trade and execution.</span></p><figure><table><thead><tr><th style='text-align:right;' ><span>Buy Orders (Bids)</span></th><th style='text-align:center;' >&nbsp;</th><th style='text-align:center;' >&nbsp;</th><th style='text-align:left;' ><span>Sell Orders (Offers)</span></th></tr></thead><tbody><tr><td style='text-align:right;' ><span>Price</span></td><td style='text-align:center;' ><span>Quantity</span></td><td style='text-align:center;' ><span>Price</span></td><td style='text-align:left;' ><span>Quantity</span></td></tr><tr><td style='text-align:right;' ><span>45.25</span></td><td style='text-align:center;' ><span>79,453</span></td><td style='text-align:center;' ><span>45.30</span></td><td style='text-align:left;' ><span>65,000</span></td></tr><tr><td style='text-align:right;' ><span>45.00</span></td><td style='text-align:center;' ><span>151,245</span></td><td style='text-align:center;' ><span>45.40</span></td><td style='text-align:left;' ><span>89,457</span></td></tr><tr><td style='text-align:right;' ><span>44.93</span></td><td style='text-align:center;' ><span>230,145</span></td><td style='text-align:center;' ><span>45.45</span></td><td style='text-align:left;' ><span>105,456</span></td></tr><tr><td style='text-align:right;' ><span>44.90</span></td><td style='text-align:center;' ><span>253,069</span></td><td style='text-align:center;' ><span>45.50</span></td><td style='text-align:left;' ><span>257,986</span></td></tr><tr><td style='text-align:right;' ><span>44.85</span></td><td style='text-align:center;' ><span>325,145</span></td><td style='text-align:center;' ><span>45.60</span></td><td style='text-align:left;' ><span>341,098</span></td></tr></tbody></table></figure><p><span>In less liquid markets where there are insufficient orders to drive liquidity, exchanges may operate a </span><strong><span>quote-driven</span></strong><span> system. The market view is made up not by limit orders, but by the bid/offer prices shown by designated market-makers. In some cases, the system may ensure better execution (market-makers must always make a price while investors can withdraw orders) but may be less transparent (if limit orders are not shown).</span></p><p><span>Although exchanges may focus on one system or the other, many use both. They may also use hybrid systems where (for instance) limit orders are shown in quote-driven markets.</span></p><h1><a name="summary" class="md-header-anchor"></a><span>Summary</span></h1><h2><a name="overview-of-equity" class="md-header-anchor"></a><span>Overview of Equity </span></h2><ul><li><span>Equity forms the foundation of a company’s capital structure. Stockholders rank last in the “bankruptcy queue.”</span>
+<span> </span></li><li><span>Most equity is in the form of common stock (ordinary shares). Common stockholders usually have voting rights and receive discretionary dividends from the earnings of the company.</span>
+<span> </span></li><li><span>Common stock may be split into multiple (usually dual) classes. Although classes may receive the same dividends, “supervoting” classes give holders additional voting rights.</span>
+<span> </span></li><li><span>Preferred stock (preference shares) ranks higher than common stock in the event of liquidation. Dividends are usually fixed and are paid before any dividends are paid out to common stockholders.</span>
+<span> </span></li><li><span>Warrants are option-like instruments that give the holder the right, but not the obligation, at some time in the future to exercise the warrant and purchase a number of shares at a pre-agreed price.</span>
+<span> </span></li><li><span>Depositary receipts (DRs) are traded instruments evidencing ownership of a number of shares. When denominated in a different currency than the currency of the underlying shares, they can be used to facilitate trading of foreign equity on domestic markets.</span>
+<span> </span></li><li><span>Exchange-traded funds (ETFs) are collections of multiple stocks replicating portfolios of different investment strategies. Most commonly, ETFs contain the components of a stock index and the performance of the fund should passively replicate the performance of the underlying index.</span></li></ul><h2><a name="valuing-equity" class="md-header-anchor"></a><span>Valuing Equity</span></h2><ul><li><span>Stock valuation is done through either fundamental analysis (examining key economic factors for both the market and target company) or technical analysis (examining the history of market behavior, particularly price and volume).</span>
+<span> </span></li><li><span>At the heart of fundamental analysis are a number of key measurements based around the price and earnings of a share.</span>
+<span> </span></li><li><span>Earnings per share (EPS) measures a company’s earnings relative to outstanding shares. Investors look to assess whether a stock is currently “cheap” or “expensive” by combining EPS with price/earnings (P/E) and expected growth rates (PEG). Dividend yield measures a stock’s income generation.</span>
+<span> </span></li><li><span>As well as simple classifications such as geography and industrial sector, stocks can also be categorized by the way in which their fundamental characteristics tally with simple investment strategies.</span>
+<span> </span></li><li><span>Growth stocks have high current P/E ratios as investors expect rapid growth in profitability.</span>
+<span> </span></li><li><span>Value stocks are those considered undervalued by investors. They have P/E ratios lower than the market. Attractive companies are asset-rich with low levels of indebtedness.</span>
+<span> </span></li><li><span>Income stocks are usually those of mature, slow-growth, companies with a reliable history of dividend payments, comfortably covered by earnings.</span>
+<span> </span></li><li><span>Equity markets (and investor) performance are measured using market indices that mimic the performance of a portfolio of underlying stocks from a particular market or sector.</span></li></ul><h2><a name="trading-equity" class="md-header-anchor"></a><span>Trading Equity</span></h2><ul><li><span>The majority of equity transactions take place on recognized stock exchanges.</span>
+<span> </span></li><li><span>Before a stock can be traded on an exchange, it must be listed. Dual/multiple listings are quite common.</span>
+<span> </span></li><li><span>It is not necessary for a stock to be listed on an exchange in order for it to be traded. OTC transactions can take place without listing.</span>
+<span> </span></li><li><span>In addition to traditional stock exchanges, a high proportion of trading now takes place through alternative trading venues such as dark pools.</span>
+<span> </span></li><li><span>Alongside the emergence of off-exchange trading venues, equity trading has also been transformed by automated/algorithmic trading strategies, most notably high frequency trading (HFT).</span>
+<span> </span></li><li><span>Regulators have become increasingly concerned about the potential market distortions caused by dark pools and HFT.</span>
+<span> </span></li><li><span>There are two basic types of order in equity markets. Market orders are executed at the best price available, while limit orders are only executed if a target price can be obtained. Orders can be sent to multiple trading venues.</span>
+<span> </span></li><li><span>A trading venue generates executable prices through using either order book or quote-driven systems.</span></li></ul></div>
+</body>
+</html>
